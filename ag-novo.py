@@ -14,7 +14,7 @@ n_geracoes = 100
 
 
 # Lendo arquivo
-arquivo = open('matriz-1.txt', 'r')
+arquivo = open('matriz-3.txt', 'r')
 
 nlinha, ncoluna = map(int, arquivo.readline().split())
 
@@ -31,6 +31,7 @@ for i in range(nlinha):
 arquivo.close()
 pontos.remove('R')
 
+print(coordenadas)
 # Calculando quantos embaralhamentos serão feitos
 n_elemento = math.ceil(tamanho_populacao / len(pontos))
 
@@ -223,7 +224,7 @@ while geracao < n_geracoes:
     populacao_ranqueada = fitness(populacao)
 
     # Trocar entre as funções roleta e torneio aqui
-    pais_escolhidos = torneio(populacao_ranqueada)
+    pais_escolhidos = roleta(populacao_ranqueada)
 
     # Tira o ranqueamento dos pais escolhidos para somar com lista filhos 
     # fazer a mutação e gerar nova população
